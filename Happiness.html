@@ -20,9 +20,10 @@
 </head>
 
 <body>
-  <div id="vis"></div> <!-- 这是第一个可视化的容器 -->
+  <div id="vis"></div> 
 
-  <div id="vis2"></div> <!-- 这是第二个可视化的容器 -->
+  <div id="vis2"></div> 
+  <div id="vis3"></div> 
 
   <script type="text/javascript">
     var specVis1 = {
@@ -81,11 +82,140 @@
       }
     };
 
+    var specVis3 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 350,
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/year_happy.csv"
+  },
+  "transform": [
+    {"filter": "country_selection == null || datum.country == country_selection"}
+  ],
+  "params": [
+    {
+      "name": "country_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Australia",
+          "China",
+          "France",
+          "Germany",
+          "Japan",
+          "Russia",
+          "South Africa",
+          "South Korea",
+          "Switzerland",
+          "United Kingdom",
+          "United States"
+        ],
+        "labels": [
+          "Show All",
+          "Australia",
+          "China",
+          "France",
+          "Germany",
+          "Japan",
+          "Russia",
+          "South Africa",
+          "South Korea",
+          "Switzerland",
+          "United Kingdom",
+          "United States"
+        ],
+        "name": "Country : "
+      }
+    }
+  ],
+  "encoding": {
+    "x": {"field": "year", "type": "temporal", "title": "year"},
+    "y": {
+      "field": "happiness",
+      "type": "quantitative",
+      "title": "happiness",
+      "scale": {"domain": [3, 8]}
+    },
+    "color": {
+      "condition": {
+        "param": "hover",
+        "field": "country", 
+        "type": "nominal",
+        "legend": null
+      },
+      "value": "grey"
+    },
+    "opacity": {"condition": {"param": "hover", "value": 1}, "value": 0.2}
+  },
+  "layer": [
+    {
+      "description": "transparent layer to make it easier to trigger selection",
+      "params": [
+        {
+          "name": "hover",
+          "select": {"type": "point", "fields": ["country"], "on": "mouseover"} 
+        }
+      ],
+      "mark": {"type": "line", "strokeWidth": 8, "stroke": "transparent"}
+    },
+    {"mark": "line"},
+    {
+      "encoding": {
+        "x": {"aggregate": "max", "field": "year"},
+        "y": {"aggregate": {"argmax": "year"}, "field": "happiness"}
+      },
+      "layer": [
+        {"mark": {"type": "circle"}},
+        {
+          "mark": {"type": "text", "align": "left", "dx": 4},
+          "encoding": {"text": {"field": "country", "type": "nominal"}} 
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "country", "type": "nominal"}, 
+        "color": {"field": "country", "type": "nominal"}, 
+        "opacity": {
+          "condition": {
+            "test": "datum['country'] == 'Australia' || datum['country'] == 'China' || datum['country'] == 'France' || datum['country'] == 'Germary' || datum['country'] == ' Japan' || datum['country'] == 'Russia' ||  datum['country'] == 'United States'",
+            "value": 0
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "country", "type": "nominal"}, 
+          {"field": "year", "type": "temporal", "title": "year"},
+          {
+            "field": "happiness",
+            "type": "quantitative",
+            "format": ".2f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {"view": {"stroke": null}
+  }
+}
+
     // Embed the Vega-Lite visualization for specVis1
     vegaEmbed('#vis', specVis1).catch(console.error);
 
     // Embed the Vega-Lite visualization for specVis2
     vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+
+    vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
     }).catch(console.error);
   </script>
 </body>
