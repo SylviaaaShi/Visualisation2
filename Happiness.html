@@ -44,7 +44,7 @@
               "url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/GDP_Happy.csv"
             },
             "key": "Country name",
-            "fields": ["Happy"]
+            "fields": ["Happiness"]
           }
         },
         {"calculate": "datum.Active + 0.1", "as": "Active Cases"}
@@ -52,13 +52,13 @@
       "mark": {"type": "geoshape"},
       "encoding": {
         "color": {
-          "field": "Happy",
+          "field": "Happiness",
           "type": "quantitative",
           "scale": {"type": "log"}
         },
         "tooltip": [
           {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-          {"field": "Happy", "type": "quantitative"}
+          {"field": "Happiness", "type": "quantitative"}
         ]
       }
     };
@@ -71,14 +71,26 @@
         "name": "paintbrush",
         "select": {"type": "point", "on": "mouseover", "nearest": true}
       }],
-      "mark": "point",
+      "mark": {
+      "type": "circle",
+      "filled": true},
       "encoding": {
         "x": {"field": "GDP", "type": "quantitative"}, 
-        "y": {"field": "Happy", "type": "quantitative"}, 
+        "y": {"field": "Happiness", "type": "quantitative"}, 
         "size": {
           "condition": {"param": "paintbrush", "value": 300},
           "value": 50
-        }
+        },
+        "color": {
+      "field": "Country name", 
+      "type": "nominal",
+      "scale": {"scheme": "category10"} 
+    },
+    "tooltip": [
+      {"field": "Country name", "title": "Country"},
+      {"field": "GDP", "title": "GDP"},
+      {"field": "Happiness", "title": "Happiness"}
+    ]
       }
     };
 
