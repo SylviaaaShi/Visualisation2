@@ -24,6 +24,7 @@
 
   <div id="vis2"></div> 
   <div id="vis3"></div> 
+  <div id="vis4"></div> 
 
   <script type="text/javascript">
     var specVis1 = {
@@ -220,6 +221,49 @@
   }
 }
 
+    var specVis4 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Vega-Lite version of bar chart from https://observablehq.com/@d3/learn-d3-scales.",
+  "width": 400,
+  "title": "Top 20 countries with global happiness in 2023",
+  "data": {"url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/WHR2023.csv"},
+  "transform": [
+    {"window": [{"op": "row_number", "as": "rank"}]},
+    {"filter": "datum.rank <= 20"}
+  ],
+  "encoding": {
+    "y": {"field": "Country name", "type": "nominal", "sort": "-x", "title": null},
+    "x": {"field": "Ladder score", "type": "quantitative", "title": null}
+  },
+  "layer": [{
+    "mark": "bar",
+    "encoding": {
+      "color": {
+        "field": "Ladder score",
+        "type": "quantitative",
+        "title": "Happiness"
+      }
+    }
+  }, {
+    "mark": {
+      "type": "text",
+      "align": "right",
+      "xOffset": -4,
+      "aria": false
+    },
+    "encoding": {
+      "text": {"field": "Ladder score", "type": "quantitative"},
+      "color": {
+        "condition": {
+          "test": {"field": "Ladder score", "gt": 10},
+          "value": "white"
+        },
+        "value": "black"
+      }
+    }
+  }]
+}
+
     // Embed the Vega-Lite visualization for specVis1
     vegaEmbed('#vis', specVis1).catch(console.error);
 
@@ -228,6 +272,9 @@
     }).catch(console.error);
 
     vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+
+    vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
     }).catch(console.error);
   </script>
 </body>
