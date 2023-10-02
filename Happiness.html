@@ -25,6 +25,7 @@
   <div id="vis2"></div> 
   <div id="vis3"></div> 
   <div id="vis4"></div> 
+  <div id="vis5"></div> 
 
   <script type="text/javascript">
     var specVis1 = {
@@ -262,7 +263,39 @@
       }
     }
   }]
-}
+};
+var specVis5 = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": 400,
+      "height": 600,
+      "description": "Select multiple points with the shift key.",
+      "data": {"url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/corruption.csv"},
+      "params": [{
+        "name": "paintbrush",
+        "select": {"type": "point", "on": "mouseover", "nearest": true}
+      }],
+      "mark": {
+      "type": "circle",
+      "filled": true},
+      "encoding": {
+        "x": {"field": "corruption", "type": "quantitative"}, 
+        "y": {"field": "happiness", "type": "quantitative"}, 
+        "size": {
+          "condition": {"param": "paintbrush", "value": 300},
+          "value": 50
+        },
+        "color": {
+      "field": "country", 
+      "type": "nominal",
+      "scale": {"scheme": "category10"} 
+    },
+    "tooltip": [
+      {"field": "country", "title": "country"},
+      {"field": "corruption", "title": "corruption"},
+      {"field": "happiness", "title": "happiness"}
+    ]
+      }
+    }
 
     // Embed the Vega-Lite visualization for specVis1
     vegaEmbed('#vis', specVis1).catch(console.error);
@@ -275,6 +308,9 @@
     }).catch(console.error);
 
     vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+
+    vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
     }).catch(console.error);
   </script>
 </body>
