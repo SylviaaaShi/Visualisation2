@@ -19,13 +19,105 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
-<body>
-  <div id="vis"></div> 
+<head>
+  <link rel="stylesheet" type="text/css" href="Happiness.css">
+</head>
 
-  <div id="vis2"></div> 
-  <div id="vis3"></div> 
-  <div id="vis4"></div> 
-  <div id="vis5"></div> 
+<body>
+
+    <div class="page">
+      <h1>What Is Your Happiness Level?</h1>
+<div class="title-desc">
+    <h2 class="title-desc-text">Global happiness is a measure of the overall life satisfaction and well-being of the inhabitants of a country or region. With internationalisation and technological advances, people are increasingly concerned not only with economic growth, but also with the quality of life and happiness. Global happiness is not only about a country's economic development, but is also closely related to the cultural, political and social environment.</h2>
+    <h3>Why is measuring happiness important?</h3>
+    <h4>
+        Unsurprisingly, people living in poverty or in politically volatile countries are not as happy as those living in relatively wealthy, politically stable countries.         
+        Humans, as individuals, find their own way to comfort and happiness even in the most unfavourable situations. This also applies to collectives - people working together as friends, family, community and society to improve their lives. Measuring the overall well-being of a group can identify the biggest factors that positively and negatively affect well-being. These factors can then be targeted to improve the lives of those suffering by addressing root causes such as economic adversity, lack of healthcare or limited future opportunities.
+    </h4>
+    <div id="vis"></div> 
+</div>
+    <br>
+    <br>
+    <hr>
+    <hr>
+
+      <h2>The five main factors of well-being we measure are national GDP, social support, longevity, freedom of choice in life and generosity.
+      </h2>
+      <div id="vis6"></div> 
+    <br>
+    <br>
+    <hr>
+    <hr>
+    
+
+      <div class="section-2">
+
+        <div class="map">
+            <div class="subtitle">
+                <h2>World Happiness, 2023</h2>
+                <div id="vis4"></div> 
+            </div>
+        </div>
+    
+        <div class="map-text">
+            <p>
+                There is a likelihood that there is <b>more share of male </b>that consumed alcohol than female in 2016 throughout the analysed countries. 
+                When the bubble chart is filtered by continents (click the continent legend), the majority of <b>European</b> countries have <b>large percentages</b> of male and females who drank alcohol.
+            </p>
+        </div>
+      </div>
+    <br>
+    <hr>
+    <hr>
+    <br>
+
+      <div class="section-3">
+
+        <div class="line-text">
+            <p>
+                There is a likelihood that there is <b>more share of male </b> that consumed alcohol than female in 2016 throughout the analysed countries. 
+                When the bubble chart is filtered by continents (click the continent legend), the majority of <b>European</b> countries have <b>large percentages</b> of male and females who drank alcohol.
+            </p>
+        </div>
+    
+        <div class="subtitle">
+            <h2>2023</h2>
+            <div id="vis3"></div> 
+        </div>
+
+        
+    
+    </div>
+
+    <br>
+    <hr>
+    <hr>
+    <br>
+    
+    <div class="graphs-container">
+
+      <!-- Graph 1 -->
+      <div class="graph-container">
+          <div id="vis2"></div>
+          <p>Description for the first graph goes here...</p>
+      </div>
+  
+      <!-- Graph 2 -->
+      <div class="graph-container">
+          <div id="vis5"></div>
+          <p>Description for the second graph goes here...</p>
+      </div>
+  
+    </div>
+  
+
+          
+    
+  </div>
+
+
+  
+
 
   <script type="text/javascript">
     var specVis1 = {
@@ -67,6 +159,8 @@
 
     var specVis2 = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": 300,
+      "height": 300,
       "description": "Select multiple points with the shift key.",
       "data": {"url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/GDP_Happy.csv"},
       "params": [{
@@ -98,8 +192,8 @@
 
     var specVis3 = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 350,
-  "height": 300,
+  "width": 400,
+  "height": 400,
   "data": {
     "url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/year_happy.csv"
   },
@@ -266,8 +360,8 @@
 };
 var specVis5 = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "width": 400,
-      "height": 600,
+      "width": 300,
+      "height": 300,
       "description": "Select multiple points with the shift key.",
       "data": {"url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/corruption.csv"},
       "params": [{
@@ -297,6 +391,50 @@ var specVis5 = {
       }
     }
 
+    var specVis6 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "900",
+  "height": "400",
+  "title": "Stacked Bar Chart (Sorted by Ladder Score)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/WHR2023.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {"calculate": "datum['Healthy life expectancy'] / 100", "as": "Life Expectancy"},
+    {"calculate": "datum['Logged GDP per capita'] / 100", "as": "GDP per capita"},
+    {"fold": ["GDP per capita", "Social support", "Life Expectancy", "Freedom to make life choices", "Generosity"], "as": ["variable", "value"]},
+    {"filter": {"selection": "variable_selector"}}
+  ], 
+  "selection": {
+    "variable_selector": {
+      "type": "multi",
+      "fields": ["variable"],
+      "bind": {"input": "select", "options": [null, "GDP per capita", "Social support", "Life Expectancy", "Freedom to make life choices", "Generosity"]}
+    }
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "Country name", "type": "nominal", "title": "Country", "sort": {"field": "Ladder score", "order": "descending"}},
+    "y": {"field": "value", "type": "quantitative", "title": "Values"},
+    "color": {
+      "field": "variable",
+      "type": "nominal",
+      "title": "Variable",
+      "scale": {"range": ["#B7E0FE", "#B6E0FE", "#84C5F4", "#4098D7", "#006494"]}
+    },
+    "tooltip": [
+      {"field": "Country name", "type": "nominal", "title": "Country"},
+      {"field": "GDP per capita", "type": "quantitative", "title": "Logged GDP per capita"},
+      {"field": "Social support", "type": "quantitative", "title": "Social Support"},
+      {"field": "Life Expectancy", "type": "quantitative", "title": "Healthy Life Expectancy (Divided by 100)"},
+      {"field": "Freedom to make life choices", "type": "quantitative", "title": "Freedom to Make Choices"},
+      {"field": "Generosity", "type": "quantitative", "title": "Generosity"}
+    ]
+  }
+}
+
+
     // Embed the Vega-Lite visualization for specVis1
     vegaEmbed('#vis', specVis1).catch(console.error);
 
@@ -311,6 +449,9 @@ var specVis5 = {
     }).catch(console.error);
 
     vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+
+    vegaEmbed('#vis6', specVis6, { "actions": false }).then(function (result) {
     }).catch(console.error);
   </script>
 </body>
