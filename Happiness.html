@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>World Map</title>
+  <title>Visualisation II</title>
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
@@ -26,24 +26,41 @@
 <body>
 
     <div class="page">
-      <h1>What Is Your Happiness Level?</h1>
+
+      <div class="header-container">
+        <h1>What Is Your Happiness Level?</h1>
+        <h2 class="title-desc-text">Global happiness is a measure of the overall life satisfaction and well-being of the inhabitants of a country or region. With internationalisation and technological advances, people are increasingly concerned not only with economic growth, but also with the quality of life and happiness. Global happiness is not only about a country's economic development, but is also closely related to the cultural, political and social environment.</h2>
+
+        <img src="bg.jpg" alt="Description of Image">
+        
+    </div>
+    
 <div class="title-desc">
-    <h2 class="title-desc-text">Global happiness is a measure of the overall life satisfaction and well-being of the inhabitants of a country or region. With internationalisation and technological advances, people are increasingly concerned not only with economic growth, but also with the quality of life and happiness. Global happiness is not only about a country's economic development, but is also closely related to the cultural, political and social environment.</h2>
-    <h3>Why is measuring happiness important?</h3>
-    <h4>
+    <h2>Why is measuring happiness important?</h2>
+    <p>
         Unsurprisingly, people living in poverty or in politically volatile countries are not as happy as those living in relatively wealthy, politically stable countries.         
         Humans, as individuals, find their own way to comfort and happiness even in the most unfavourable situations. This also applies to collectives - people working together as friends, family, community and society to improve their lives. Measuring the overall well-being of a group can identify the biggest factors that positively and negatively affect well-being. These factors can then be targeted to improve the lives of those suffering by addressing root causes such as economic adversity, lack of healthcare or limited future opportunities.
-    </h4>
+    </p>>
     <div id="vis"></div> 
+    <p>The shades of colour on this spectral world map represent different levels of happiness, with dark blue representing high levels of happiness and light blue and green representing lower levels of happiness. Most of <b>Europe, North America and Australia</b> show a dark blue colour, which means that these regions have relatively high levels of happiness. <b>Africa, Central Asia and some Asian countries</b> have lower levels of happiness, with the colours shown as light blue or green. Certain countries, such as some parts of the <b>Middle East</b> show a mix of dark and light blue, indicating that there are differences in happiness levels in these regions. But why would the happiness level values be different?
+    </p>
 </div>
-    <br>
-    <br>
     <hr>
     <hr>
 
-      <h2>The five main factors of well-being we measure are national GDP, social support, longevity, freedom of choice in life and generosity.
+      <h2>The five main factors of happiness we measure are national GDP, social support, longevity, freedom of choice in life and generosity.
       </h2>
       <div id="vis6"></div> 
+      <br>
+      <p><strong>Gross national product (GDP):</strong> Gross national product is a measure of the total economic output of a country or region. It reflects a country's level of economic prosperity. Typically, a high GDP indicates that a country has a relatively strong economy with a high per capita income, which helps to provide more opportunities and resources, thus improving the quality of life of its inhabitants. However, GDP is not a complete indicator of happiness, as it does not take into account distributional inequalities and other non-economic factors.</p>
+
+      <p><strong>Social Support:</strong> Social support measures the extent to which people in a society support each other, including the support networks of family, friends, and community. Having good social support can help reduce stress and isolation in individuals, promote physical and mental health, and enhance well-being.</p>
+      
+      <p><strong>Life Expectancy:</strong> It is commonly used to measure the life expectancy per capita of a country or region. Longevity is important to a country's well-being index as it reflects the level of healthcare, sanitation, and quality of lifestyle. Higher life expectancy is usually associated with greater happiness.</p>
+      
+      <p><strong>Freedom of choice in life:</strong> The ability to freely choose one's lifestyle and make decisions is critical to individual well-being. It includes people's autonomy over their lives, careers, education, and political participation. Having more freedom of choice usually increases well-being because people are better able to pursue their goals and values.</p>
+      
+      <p><strong>Generosity:</strong> Generosity measures the extent to which people in a society are willing to help others and act charitably. Generosity helps build social bonds, promotes social cohesion, and increases an individual's sense of well-being. Participation in charitable activities and support of others can lead to a sense of fulfillment and well-being.</p>
     <br>
     <br>
     <hr>
@@ -54,16 +71,25 @@
 
         <div class="map">
             <div class="subtitle">
-                <h2>World Happiness, 2023</h2>
+                <h2>World Happiness Top20 countries, 2023</h2>
                 <div id="vis4"></div> 
+           
             </div>
         </div>
     
         <div class="map-text">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
             <p>
-                There is a likelihood that there is <b>more share of male </b>that consumed alcohol than female in 2016 throughout the analysed countries. 
-                When the bubble chart is filtered by continents (click the continent legend), the majority of <b>European</b> countries have <b>large percentages</b> of male and females who drank alcohol.
+              The World Happiness Scale is based on survey responses from a large number of respondents around the world. These respondents were asked to assess the quality of their current lives, using a scale called a "ladder" from 0 to 10, where 0 is the worst life and 10 is the best life.
+
             </p>
+            <p>This visualisation shows the top 20 countries in terms of global happiness in 2023 and their corresponding happiness scores. Finland tops this list with a score of 7.804, which is close to the maximum score of 8. This means that Finnish residents generally believe they have a high quality of life. The top 20 countries do not differ much in their happiness scores, ranging from 6.8 to 7.8. This means that life satisfaction levels are relatively high across these countries.</p>
         </div>
       </div>
     <br>
@@ -74,14 +100,12 @@
       <div class="section-3">
 
         <div class="line-text">
-            <p>
-                There is a likelihood that there is <b>more share of male </b> that consumed alcohol than female in 2016 throughout the analysed countries. 
-                When the bubble chart is filtered by continents (click the continent legend), the majority of <b>European</b> countries have <b>large percentages</b> of male and females who drank alcohol.
-            </p>
+          <p>This line graph shows how happiness levels have changed in different countries over a number of years. Switzerland, Australia and the United Kingdom have consistently high levels of happiness, while China, Russia and South Africa have relatively low levels. Certain countries experienced significant changes in happiness levels in specific years, such as after the 2008 economic crisis, suggesting that economic, political and social factors can all affect people's happiness.</p>
+          <p>We can see that South Africa's happiness levels declined a lot in 2013. South Africa's economic growth slowed down in 2013. High unemployment, inflation and rising costs of living put pressure on many households. The miners' strike in South Africa culminated in 2012 and continued to have an impact in 2013. This led to disruptions in production and dealt a blow to both the economy and social stability.The political climate in South Africa became increasingly tense in 2013, linked to issues of government leadership, corruption and governance.
+          </p>
         </div>
     
         <div class="subtitle">
-            <h2>2023</h2>
             <div id="vis3"></div> 
         </div>
 
@@ -98,17 +122,28 @@
 
       <!-- Graph 1 -->
       <div class="graph-container">
+          <h2>Happiness and GDP</h2>
           <div id="vis2"></div>
-          <p>Description for the first graph goes here...</p>
+          <p>Most of the data points are clustered in the upper right corner, which means that as GDP increases, happiness also increases. This suggests a positive correlation between GDP and happiness. There are some countries in the graph that have low GDP but have relatively high levels of happiness and vice versa. This means that there are other factors other than GDP that may affect the happiness level of a country.
+            Economic Development and Quality of Life: A country's GDP often correlates with the quality of life and standard of living of its population. A high GDP may mean better public services, education and healthcare, all of which may increase people's happiness.
+            </p>
       </div>
   
       <!-- Graph 2 -->
       <div class="graph-container">
+        <h2>Happiness and Corruption</h2>
           <div id="vis5"></div>
-          <p>Description for the second graph goes here...</p>
+          <p>The majority of data points in the data are centred on areas with moderate to high levels of corruption and moderate levels of happiness. Overall, there appears to be a decrease in happiness as the level of corruption increases, implying that there may be a negative correlation between the level of corruption and happiness. 
+            Corruption usually means that public resources are being misused or stolen, which may lead to a decline in public services, thus affecting the public's quality of life and happiness. Corruption may lead to a decrease in public trust in government and other public institutions. Trust is an important factor in social cohesion and stability, and a lack of trust may reduce people's sense of well-being.
+            </p>
       </div>
   
     </div>
+    <footer>
+      © Made by Yihan Shi | Student ID: 31119638 | FIT3179 Visualisation II
+      <br>
+      To find out more about happiness check out<a href="https://worldhappiness.report/about/" target="_blank"> World Happiness Report</a>
+  </footer>
   
 
           
@@ -193,7 +228,7 @@
     var specVis3 = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 400,
-  "height": 400,
+  "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/year_happy.csv"
   },

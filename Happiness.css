@@ -4,6 +4,15 @@
     padding: 20px;  
     box-sizing: border-box;  
 }
+.header-container {
+    text-align: center; 
+}
+
+.header-container img {
+    width: 900px;       
+    margin-bottom: 10px; 
+}
+
 
 h1 {
     font-weight: bold;
@@ -11,6 +20,21 @@ h1 {
     text-align: center;
 }
 
+
+h2 {
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+strong{
+    color: rgb(95, 86, 227);
+  }
+
+  b{
+    color: rgb(97, 99, 245);
+  }
+  
 .title-desc-text {
     color: #777777; 
     font-size: 1em; 
@@ -21,39 +45,47 @@ h1 {
 
 .section-2 {
     display: flex;
-    align-items: start; /* Align items at the top */
-    justify-content: space-between; /* Add space between the items */
-    gap: 20px; /* Optional: Add some gap between items */
+    align-items: start; 
+    justify-content: space-between; 
+    gap: 20px;
 }
 
 .map-text {
-    flex: 1; /* Each item will take up equal width */
-    padding: 10px; /* Optional: Add some padding inside each item */
+    flex: 1; 
+    padding: 10px;
 }
 
 .section-3 {
     display: flex;
-    align-items: start; /* Align items at the top */
-    justify-content: space-between; /* Add space between the items */
-    gap: 20px; /* Optional: Add some gap between items */
+    align-items: start;
+    justify-content: space-between; 
+    gap: 20px; 
 }
 
 .line-text {
-    flex: 1; /* Each item will take up equal width */
-    padding: 10px; /* Optional: Add some padding inside each item */
+    flex: 1; 
+    padding: 10px; 
 }
 
 .graphs-container {
     display: flex;
     justify-content: space-between;
-    gap: 20px;  /* This is optional. Adds some space between the two graphs */
+    gap: 20px;  
 }
 
 .graph-container {
     flex: 1;
-    padding: 10px;  /* Optional. Adds some padding around each graph */
+    padding: 10px;  
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Centers the graph and text horizontally */
+    align-items: center; 
+}
+
+footer {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f9f9f9;
 }
 
