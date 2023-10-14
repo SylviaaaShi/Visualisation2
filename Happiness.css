@@ -33,10 +33,14 @@ strong{
 
   b{
     color: rgb(97, 99, 245);
+    font-size: large;
   }
   
+br{
+    color: #000;
+}
 .title-desc-text {
-    color: #777777; 
+
     font-size: 1em; 
     text-align: center;
 }
@@ -86,6 +90,6 @@ footer {
     color: #666;
     text-align: center;
     padding: 20px 0;
-    background-color: #f9f9f9;
+    background-color: #f9f9f93d;
 }
 

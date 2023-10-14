@@ -23,7 +23,7 @@
   <link rel="stylesheet" type="text/css" href="Happiness.css">
 </head>
 
-<body>
+<body style="background: no-repeat url('bgpic.webp');background-size: cover; background-position: top ">
 
     <div class="page">
 
@@ -37,8 +37,7 @@
     
 <div class="title-desc">
     <h2>Why is measuring happiness important?</h2>
-    <p>
-        Unsurprisingly, people living in poverty or in politically volatile countries are not as happy as those living in relatively wealthy, politically stable countries.         
+    <p>       
         Humans, as individuals, find their own way to comfort and happiness even in the most unfavourable situations. This also applies to collectives - people working together as friends, family, community and society to improve their lives. Measuring the overall well-being of a group can identify the biggest factors that positively and negatively affect well-being. These factors can then be targeted to improve the lives of those suffering by addressing root causes such as economic adversity, lack of healthcare or limited future opportunities.
     </p>>
     <div id="vis"></div> 
@@ -48,19 +47,17 @@
     <hr>
     <hr>
 
-      <h2>The five main factors of happiness we measure are national GDP, social support, longevity, freedom of choice in life and generosity.
+      <h2>The five main factors of happiness we measure 
       </h2>
       <div id="vis6"></div> 
       <br>
-      <p><strong>Gross national product (GDP):</strong> Gross national product is a measure of the total economic output of a country or region. It reflects a country's level of economic prosperity. Typically, a high GDP indicates that a country has a relatively strong economy with a high per capita income, which helps to provide more opportunities and resources, thus improving the quality of life of its inhabitants. However, GDP is not a complete indicator of happiness, as it does not take into account distributional inequalities and other non-economic factors.</p>
+      <p>The five main factors of well-being that we measure. In the chart, we can see how the countries are ranked according to the "Ladder Score" (Happiness Score).
 
-      <p><strong>Social Support:</strong> Social support measures the extent to which people in a society support each other, including the support networks of family, friends, and community. Having good social support can help reduce stress and isolation in individuals, promote physical and mental health, and enhance well-being.</p>
-      
-      <p><strong>Life Expectancy:</strong> It is commonly used to measure the life expectancy per capita of a country or region. Longevity is important to a country's well-being index as it reflects the level of healthcare, sanitation, and quality of lifestyle. Higher life expectancy is usually associated with greater happiness.</p>
-      
-      <p><strong>Freedom of choice in life:</strong> The ability to freely choose one's lifestyle and make decisions is critical to individual well-being. It includes people's autonomy over their lives, careers, education, and political participation. Having more freedom of choice usually increases well-being because people are better able to pursue their goals and values.</p>
-      
-      <p><strong>Generosity:</strong> Generosity measures the extent to which people in a society are willing to help others and act charitably. Generosity helps build social bonds, promotes social cohesion, and increases an individual's sense of well-being. Participation in charitable activities and support of others can lead to a sense of fulfillment and well-being.</p>
+        Each bar is made up of several sections representing five different happiness factors: <b>Freedom to make life choices, GDP per capita, Generosity, Life Expectancy and Social Support</b>.
+        The total height of each country's bar, which is the value when all the factors are stacked up, represents the country's overall happiness. This means that higher bars indicate higher levels of happiness.
+        
+        
+        </p>
     <br>
     <br>
     <hr>
@@ -101,7 +98,7 @@
 
         <div class="line-text">
           <p>This line graph shows how happiness levels have changed in different countries over a number of years. Switzerland, Australia and the United Kingdom have consistently high levels of happiness, while China, Russia and South Africa have relatively low levels. Certain countries experienced significant changes in happiness levels in specific years, such as after the 2008 economic crisis, suggesting that economic, political and social factors can all affect people's happiness.</p>
-          <p>We can see that South Africa's happiness levels declined a lot in 2013. South Africa's economic growth slowed down in 2013. High unemployment, inflation and rising costs of living put pressure on many households. The miners' strike in South Africa culminated in 2012 and continued to have an impact in 2013. This led to disruptions in production and dealt a blow to both the economy and social stability.The political climate in South Africa became increasingly tense in 2013, linked to issues of government leadership, corruption and governance.
+          <p>We can see that <b>South Africa's </b>happiness levels declined a lot in 2013. South Africa's economic growth slowed down in 2013. High unemployment, inflation and rising costs of living put pressure on many households. The miners' strike in South Africa culminated in 2012 and continued to have an impact in 2013. This led to disruptions in production and dealt a blow to both the economy and social stability.The political climate in South Africa became increasingly tense in 2013, linked to issues of government leadership, corruption and governance.
           </p>
         </div>
     
@@ -125,7 +122,7 @@
           <h2>Happiness and GDP</h2>
           <div id="vis2"></div>
           <p>Most of the data points are clustered in the upper right corner, which means that as GDP increases, happiness also increases. This suggests a positive correlation between GDP and happiness. There are some countries in the graph that have low GDP but have relatively high levels of happiness and vice versa. This means that there are other factors other than GDP that may affect the happiness level of a country.
-            Economic Development and Quality of Life: A country's GDP often correlates with the quality of life and standard of living of its population. A high GDP may mean better public services, education and healthcare, all of which may increase people's happiness.
+            <b>Economic Development and Quality of Life: A country's GDP often correlates with the quality of life and standard of living of its population. </b>A high GDP may mean better public services, education and healthcare, all of which may increase people's happiness.
             </p>
       </div>
   
@@ -134,7 +131,7 @@
         <h2>Happiness and Corruption</h2>
           <div id="vis5"></div>
           <p>The majority of data points in the data are centred on areas with moderate to high levels of corruption and moderate levels of happiness. Overall, there appears to be a decrease in happiness as the level of corruption increases, implying that there may be a negative correlation between the level of corruption and happiness. 
-            Corruption usually means that public resources are being misused or stolen, which may lead to a decline in public services, thus affecting the public's quality of life and happiness. Corruption may lead to a decrease in public trust in government and other public institutions. Trust is an important factor in social cohesion and stability, and a lack of trust may reduce people's sense of well-being.
+            Corruption usually means that public resources are being misused or stolen, which may lead to a decline in public services, thus affecting the public's quality of life and happiness. <b>Corruption may lead to a decrease in public trust in government and other public institutions. Trust is an important factor in social cohesion and stability, and a lack of trust may reduce people's sense of well-being.</b>
             </p>
       </div>
   
@@ -157,9 +154,10 @@
   <script type="text/javascript">
     var specVis1 = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "title": "Happiness",
+      "title": "Worle Happiness Level, 2023",
       "width": 900,
       "height": 500,
+      "background": "transparent", 
       "projection": {"type": "equalEarth"},
       "data": {
         "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
@@ -196,6 +194,7 @@
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "width": 300,
       "height": 300,
+      "background": "transparent", 
       "description": "Select multiple points with the shift key.",
       "data": {"url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/GDP_Happy.csv"},
       "params": [{
@@ -229,6 +228,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 400,
   "height": 300,
+  "background": "transparent", 
   "data": {
     "url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/year_happy.csv"
   },
@@ -355,6 +355,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Vega-Lite version of bar chart from https://observablehq.com/@d3/learn-d3-scales.",
   "width": 400,
+  "background": "transparent", 
   "title": "Top 20 countries with global happiness in 2023",
   "data": {"url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/WHR2023.csv"},
   "transform": [
@@ -397,6 +398,7 @@ var specVis5 = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "width": 300,
       "height": 300,
+      "background": "transparent", 
       "description": "Select multiple points with the shift key.",
       "data": {"url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/corruption.csv"},
       "params": [{
@@ -430,6 +432,7 @@ var specVis5 = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "900",
   "height": "400",
+  "background": "transparent", 
   "title": "Stacked Bar Chart (Sorted by Ladder Score)",
   "data": {
     "url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/WHR2023.csv",
@@ -445,7 +448,9 @@ var specVis5 = {
     "variable_selector": {
       "type": "multi",
       "fields": ["variable"],
-      "bind": {"input": "select", "options": [null, "GDP per capita", "Social support", "Life Expectancy", "Freedom to make life choices", "Generosity"]}
+      "bind": {"input": "select", "options": [null, "GDP per capita", "Social support", "Life Expectancy", "Freedom to make life choices", "Generosity"]
+      ,"labels": ["Show All", "GDP per capita", "Social support", "Life Expectancy", "Freedom to make life choices", "Generosity"],
+    "name":"Selection "}
     }
   },
   "mark": "bar",
