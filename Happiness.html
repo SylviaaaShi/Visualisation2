@@ -25,11 +25,13 @@
 
 <body style="background: no-repeat url('bgpic.webp');background-size: cover; background-position: top ">
 
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top ↑ </button>
+
     <div class="page">
 
       <div class="header-container">
         <h1>What Is Your Happiness Level?</h1>
-        <h2 class="title-desc-text">Global happiness is a measure of the overall life satisfaction and well-being of the inhabitants of a country or region. With internationalisation and technological advances, people are increasingly concerned not only with economic growth, but also with the quality of life and happiness. Global happiness is not only about a country's economic development, but is also closely related to the cultural, political and social environment.</h2>
+        <p>Global happiness is a measure of the overall life satisfaction and well-being of the inhabitants of a country or region. With internationalisation and technological advances, people are increasingly concerned not only with economic growth, but also with the quality of life and happiness. Global happiness is not only about a country's economic development, but is also closely related to the cultural, political and social environment.</p>
 
         <img src="bg.jpg" alt="Description of Image">
         
@@ -44,6 +46,8 @@
     <p>The shades of colour on this spectral world map represent different levels of happiness, with dark blue representing high levels of happiness and light blue and green representing lower levels of happiness. Most of <b>Europe, North America and Australia</b> show a dark blue colour, which means that these regions have relatively high levels of happiness. <b>Africa, Central Asia and some Asian countries</b> have lower levels of happiness, with the colours shown as light blue or green. Certain countries, such as some parts of the <b>Middle East</b> show a mix of dark and light blue, indicating that there are differences in happiness levels in these regions. But why would the happiness level values be different?
     </p>
 </div>
+<br>
+
     <hr>
     <hr>
 
@@ -181,7 +185,8 @@
         "color": {
           "field": "Happiness",
           "type": "quantitative",
-          "scale": {"type": "log"}
+          "scale": {"type": "log"},
+          
         },
         "tooltip": [
           {"field": "properties.NAME", "type": "nominal", "title": "Country"},
@@ -191,38 +196,56 @@
     };
 
     var specVis2 = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "width": 300,
-      "height": 300,
-      "background": "transparent", 
-      "description": "Select multiple points with the shift key.",
-      "data": {"url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/GDP_Happy.csv"},
-      "params": [{
-        "name": "paintbrush",
-        "select": {"type": "point", "on": "mouseover", "nearest": true}
-      }],
-      "mark": {
-      "type": "circle",
-      "filled": true},
-      "encoding": {
-        "x": {"field": "GDP", "type": "quantitative"}, 
-        "y": {"field": "Happiness", "type": "quantitative"}, 
-        "size": {
-          "condition": {"param": "paintbrush", "value": 300},
-          "value": 50
-        },
-        "color": {
-      "field": "Country name", 
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 300,
+  "height": 300,
+  "background": "transparent",
+  "description": "Select multiple points with the shift key.",
+  "data": {"url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/GDP_Happy.csv"},
+  "params": [
+    {
+      "name": "numCountries",
+      "value": 138,
+      "bind": {
+        "input": "range",
+        "min": 1,
+        "max": 138,
+        "step": 1
+      }
+    },
+    {
+      "name": "paintbrush",
+      "select": {"type": "point", "on": "mouseover", "nearest": true}
+    }
+  ],
+  "transform": [
+    {
+      "window": [{"op": "row_number", "as": "rank"}],
+      "sort": [{"field": "GDP"}]
+    },
+    {"filter": "datum.rank <= numCountries"}
+  ],
+  "mark": {"type": "circle", "filled": true},
+  "encoding": {
+    "x": {"field": "GDP", "type": "quantitative"},
+    "y": {"field": "Happiness", "type": "quantitative"},
+    "size": {
+      "condition": {"param": "paintbrush", "value": 300},
+      "value": 50
+    },
+    "color": {
+      "field": "Country name",
       "type": "nominal",
-      "scale": {"scheme": "category10"} 
+      "scale": {"scheme": "category10"}
     },
     "tooltip": [
       {"field": "Country name", "title": "Country"},
       {"field": "GDP", "title": "GDP"},
       {"field": "Happiness", "title": "Happiness"}
     ]
-      }
-    };
+  }
+}
+
 
     var specVis3 = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -395,38 +418,55 @@
   }]
 };
 var specVis5 = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "width": 300,
-      "height": 300,
-      "background": "transparent", 
-      "description": "Select multiple points with the shift key.",
-      "data": {"url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/corruption.csv"},
-      "params": [{
-        "name": "paintbrush",
-        "select": {"type": "point", "on": "mouseover", "nearest": true}
-      }],
-      "mark": {
-      "type": "circle",
-      "filled": true},
-      "encoding": {
-        "x": {"field": "corruption", "type": "quantitative"}, 
-        "y": {"field": "happiness", "type": "quantitative"}, 
-        "size": {
-          "condition": {"param": "paintbrush", "value": 300},
-          "value": 50
-        },
-        "color": {
-      "field": "country", 
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 300,
+  "height": 300,
+  "background": "transparent",
+  "description": "Select multiple points with the shift key.",
+  "data": {"url": "https://raw.githubusercontent.com/SylviaaaShi/Visualisation2/main/corruption.csv"},
+  "params": [
+    {
+      "name": "numCountries",
+      "value": 138,
+      "bind": {
+        "input": "range",
+        "min": 1,
+        "max": 138,
+        "step": 1
+      }
+    },
+    {
+      "name": "paintbrush",
+      "select": {"type": "point", "on": "mouseover", "nearest": true}
+    }
+  ],
+  "transform": [
+    {
+      "window": [{"op": "row_number", "as": "rank"}],
+      "sort": [{"field": "corruption"}]
+    },
+    {"filter": "datum.rank <= numCountries"}
+  ],
+  "mark": {"type": "circle", "filled": true},
+  "encoding": {
+    "x": {"field": "corruption", "type": "quantitative"},
+    "y": {"field": "happiness", "type": "quantitative"},
+    "size": {
+      "condition": {"param": "paintbrush", "value": 300},
+      "value": 50
+    },
+    "color": {
+      "field": "country",
       "type": "nominal",
-      "scale": {"scheme": "category10"} 
+      "scale": {"scheme": "category10"}
     },
     "tooltip": [
       {"field": "country", "title": "country"},
       {"field": "corruption", "title": "corruption"},
       {"field": "happiness", "title": "happiness"}
     ]
-      }
-    }
+  }
+}
 
     var specVis6 = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -493,7 +533,28 @@ var specVis5 = {
 
     vegaEmbed('#vis6', specVis6, { "actions": false }).then(function (result) {
     }).catch(console.error);
-  </script>
+
+
+ //Javascript
+var mybutton = document.getElementById("myBtn");
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+</script>
 </body>
+
+
 
 </html>
